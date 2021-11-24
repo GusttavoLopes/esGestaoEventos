@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>EventosApp</title>
+	 
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<link rel="stylesheet" href="../style/styleCss.css"/>
+</head>
+
+<body>
+	<header>
+		 <nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Evento</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Eventos</a></li>	       
+		      </ul>
+		    </div>
+  		</nav>
+	</header>
+	
+	<div class="container formEvento row">
+		<form method="post" class="col s12">
+			<h5>Detalhes do Evento</h5>
+			<p>Nome: <input th:value="${evento.nome}" name="nome"></input></p>
+			<p>Local: <input th:value="${evento.local}" name="local"></input></p>
+			<p>Data: <input th:value="${evento.data}" type="date" name="data"></input></p>
+			<p>Horario: <input th:value="${evento.horario}" type="time" name="horario"></input></p>
+			<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+		</form>
+	</div>
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	
+	<script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+</body>
+</html>
